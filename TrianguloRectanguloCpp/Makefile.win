@@ -1,0 +1,30 @@
+# Project: proyectotrian
+# Makefile created by Dev-C++ 5.0.0.4
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+RES      = 
+OBJ      = trian.o $(RES)
+LINKOBJ  = trian.o $(RES)
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/lib" -L"C:/Program Files (x86)/Dev-Cpp/lib/gcc" -static-libstdc++ -static-libgcc -lglut32 -lglu32 -lopengl32 -lwinmm -lgdi32 -lm -lbgi -lgdi32 -luser32  
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/include" 
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/include" 
+BIN      = proyectotrian.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS   = $(INCS)  
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before proyectotrian.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "proyectotrian.exe" $(LIBS)
+
+trian.o: trian.cpp
+	$(CPP) -c trian.cpp -o trian.o $(CXXFLAGS)
